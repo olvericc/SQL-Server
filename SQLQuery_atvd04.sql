@@ -5,7 +5,7 @@ GO
 -- Usando o banco de dados
 USE atvd03DB
 GO
--- Tabela funcion·rio
+-- Tabela funcion√°rio
 CREATE TABLE funcionario(
 	id INT NOT NULL IDENTITY,
 	nome VARCHAR (45) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE funcionario(
 	PRIMARY KEY (id)
 )
 GO
--- Tabela funÁ„o
+-- Tabela fun√ß√£o
 CREATE TABLE funcao(
 	id INT NOT NULL IDENTITY,
 	nome VARCHAR (45) NOT NULL,
@@ -109,10 +109,10 @@ CREATE TABLE fhp(
 )
 GO
 --PARTE 2
---quest„o 2
+--quest√£o 2
 ALTER TABLE funcionario ADD idade SMALLINT NOT NULL
-ALTER TABLE funcionario ADD CONSTRAINT ValidaIdade CHECK (idade<18)
---quest„o 3
+ALTER TABLE funcionario ADD CONSTRAINT ValidaIdade CHECK (idade>18)
+--quest√£o 3
 --Tabela dependente
 CREATE TABLE dependente(
 	id INT NOT NULL IDENTITY,
@@ -123,12 +123,12 @@ CREATE TABLE dependente(
 	CONSTRAINT FK_DEPENDENTE_FUNCIONARIO FOREIGN KEY (id_funcionario) REFERENCES funcionario(id)
 )
 GO
---quest„o 4
+--quest√£o 4
 ALTER TABLE diretor ADD sexo VARCHAR (1) NOT NULL
---quest„o 5
+--quest√£o 5
 ALTER TABLE diretor DROP COLUMN sexo
---quest„o 6 
+--quest√£o 6 
 ALTER TABLE fhp DROP CONSTRAINT FK_FHP_PREMIACAO
 DROP TABLE premiacao
---quest„o 7
+--quest√£o 7
 ALTER TABLE filme ADD quantidade INT NULL DEFAULT 30
