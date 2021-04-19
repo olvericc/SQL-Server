@@ -111,7 +111,7 @@ GO
 --PARTE 2
 --questão 2
 ALTER TABLE funcionario ADD idade SMALLINT NOT NULL
-ALTER TABLE funcionario ADD CONSTRAINT ValidaIdade CHECK (idade>18)
+ALTER TABLE funcionario ADD CONSTRAINT ValidaIdade CHECK (idade>=18)
 --questão 3
 --Tabela dependente
 CREATE TABLE dependente(
