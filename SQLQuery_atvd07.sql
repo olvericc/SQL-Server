@@ -15,7 +15,7 @@ go
 --Questão 3
 alter table funcionario add idade smallint not null
 go
-alter table funcionario add constraint ValidaIdade check (idade >= 18)
+alter table funcionario add constraint ValidaIdade check (idade <= 18)
 go
 
 --Questão 4
@@ -190,3 +190,16 @@ go
 select nome, cnh, idade from cliente
 where nome = 'Vitor' and idade >= 18
 go
+
+
+-- Usando Transações no SQL
+
+begin transaction	--início da transação / ou usa begin tran
+
+	--comandos...
+	delete from cliente
+	where id = 1
+	select * from cliente
+
+commit		-- ele confirma a transação
+rollback	--ele nega a transação
