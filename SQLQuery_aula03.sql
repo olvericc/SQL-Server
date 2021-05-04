@@ -101,6 +101,12 @@ go
 insert into aluguel(numero, id_cliente, id_funcionario, id_veiculo, data, total, desconto)
 values(103, 6, 3, 3, '2021-04-26', 100, 25)
 go
+insert into aluguel(numero, id_cliente, id_funcionario, id_veiculo, data, total, desconto)
+values(104, 1, 1, 2, '2021-04-13', 200, 45)
+go
+insert into aluguel(numero, id_cliente, id_funcionario, id_veiculo, data, total, desconto)
+values(105, 2, 3, 1, '2021-04-16', 150, 35)
+go
 select * from cliente
 select * from funcionario
 select * from veiculo
@@ -119,16 +125,16 @@ where alu.data between '01-04-2021' and '26-04-2021'
 group by cli.nome, alu.data
 
 --exemplo de média
-select cli.nome, alu.data, avg(alu.total) as 'Média de alugueis'
-from aluguel alu
-inner join cliente cli on cli.id = alu.id_cliente
-where alu.data between '01-04-2021' and '26-04-2021'
-group by cli.nome, alu.data
+	select cli.nome, alu.data, avg(alu.total) as 'Média de alugueis'
+	from aluguel alu
+	inner join cliente cli on cli.id = alu.id_cliente
+	where alu.data between '01-04-2021' and '26-04-2021'
+	group by cli.nome, alu.data
 
 --saber o veiculo com mais aluguel
-select cli.nome, vei.marca,vei.tipo, count(*) as 'Quantidade'
-from aluguel alu
-inner join cliente cli on cli.id = alu.id_cliente
-inner join veiculo vei on vei.id = alu.id_veiculo
-group by cli.nome, vei.marca, vei.tipo
-order by cli.nome asc
+	select cli.nome, vei.marca, vei.tipo, count(*) as 'Quantidade'
+	from aluguel alu
+	inner join cliente cli on cli.id = alu.id_cliente
+	inner join veiculo vei on vei.id = alu.id_veiculo
+	group by cli.nome, vei.marca, vei.tipo
+	order by cli.nome asc
