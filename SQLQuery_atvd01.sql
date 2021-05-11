@@ -1,4 +1,4 @@
-CREATE DATABASE atvd01DB
+CREATE DATABASE db01
 GO
 
 --Tabela Cliente

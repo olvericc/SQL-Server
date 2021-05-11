@@ -1,7 +1,7 @@
-CREATE DATABASE atvd02DB
+CREATE DATABASE db03
 GO
 
-USE atvd02DB
+USE db03
 GO
 
 --Tabela Cliente
