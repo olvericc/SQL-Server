@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 -- left join e right
 
 --inner join => conteudo na tabela a direita, e o mesmo conteudo da esquerda, ou seja 1 para 1
@@ -57,7 +57,7 @@ alter table veiculo add valor int null
 go
 -- Procedure 
 
---procudure para criar registro em aluguel
+--criando procudure para criar registro em aluguel
 alter procedure stp_registraraluguel
 	@id_cliente int,  --parametro de entrada 
 	@id_funcionario int, 
@@ -214,12 +214,14 @@ go
 
 --procudure para criar registro em aluguel
 alter procedure stp_registraraluguel
-	@id_cliente int,  --parametro de entrada 
+--parametro de entrada 
+	@id_cliente int,  
 	@id_funcionario int, 
 	@id_veiculo	int, 
 	@data date,
 	@desconto int,
 	@numero int,
+--parametro de saida, retornando alguma informação
 	@retorno varchar(50) output	--parametro de saida, retornando alguma informação
 as
 begin --início
@@ -254,7 +256,8 @@ go
 -- executando a programação
 
 declare @retorno varchar(50);
-exec stp_registraraluguel 1, 2, 3, '2021-05-11', 10  @retorno output;
+
+exec stp_registraraluguel 1, 2, 3, '2021-05-17', 10, 85, @retorno output;
 
 -- para exibir
 
@@ -307,6 +310,4 @@ begin tran T1 --iniciar transação
 --se funcionou coloco commit
 --se n errou coloco rollback
 
-
->>>>>>> d983341f94155304d9c152b7ccc3bb0cdc00b861
 select * from veiculo
