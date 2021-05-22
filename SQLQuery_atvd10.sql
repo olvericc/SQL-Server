@@ -14,7 +14,8 @@ create procedure stp_registraraluguel2 --nome da procedure
 	@qtd_dias int,
 	@valor smallmoney,
 	--parametro de saida (output)
-	@retorno varchar(50) output 
+	@retorno varchar(50) output
+	
 as
 
 begin
@@ -25,7 +26,7 @@ begin
 	
 	--setando as variaveis
 
-	set @id_cliente = (select id from veiculo where id = @id_cliente)
+	set @id_cliente = (select id from cliente where id = @id_cliente)
 	set @id_funcionario = (select id from funcionario where id = @id_funcionario)
 	set @id_veiculo = (select id from veiculo where id = @id_veiculo)
 
@@ -101,6 +102,14 @@ go
 
 declare @retorno varchar(50);
 -- data, id_cliente, id_funcionario, id_veiculo, qtd_dias e valor respectivamente
-exec stp_registraraluguel2 '2021-05-22', 1, 2, 3, 5, 50, @retorno output;
+exec stp_registraraluguel2 '2021-05-21', 6, 2, 1, 1, 90, @retorno output;
 print @retorno
 go
+
+DROP PROCEDURE stp_registraraluguel2
+
+--visualizando as tabelas
+select * from aluguel
+select * from veiculo
+select * from funcionario
+select * from cliente
